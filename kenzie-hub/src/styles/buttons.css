@@ -1,0 +1,41 @@
+.btn-df {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn-df:active {
+  background-color: var(--color-primary-opacity);
+  transition: 0.4s;
+}
+
+.btn-vr {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-grey-3);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn-vr:active {
+  background-color: var(--color-grey-1);
+  transition: 0.4s;
+}
+
+@media (min-width: 768px) {
+  .btn-df:hover {
+    background-color: var(--color-primary-focus);
+    transition: 0.4s;
+  }
+
+  .btn-vr:hover {
+    background-color: var(--color-grey-1);
+    transition: 0.4s;
+  }
+}
