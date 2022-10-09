@@ -11,6 +11,8 @@
   --color-grey-0: #f8f9fa;
 
   /* Typography */
+  --font-family: "Inter", sans-serif;
+
   --title-size: 16px;
   --text-size: 12px;
 }

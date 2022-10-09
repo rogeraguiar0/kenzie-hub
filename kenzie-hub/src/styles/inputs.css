@@ -1,9 +1,11 @@
 .input-df {
-  padding: 6px;
+  padding: 7px;
+  width: 100%;
   border: 1px solid var(--color-grey-2);
   border-radius: 4px;
   background-color: var(--color-grey-2);
-  font-size: var(--title-size);
+  color: var(--color-grey-1);
+  font-size: 14px;
   transition: 0.4s;
 }
 
@@ -14,6 +16,7 @@
 
 .input-df:focus {
   border: 1px solid var(--color-grey-0);
+  color: var(--color-grey-0);
   outline: none;
   transition: 0.4s;
 }
