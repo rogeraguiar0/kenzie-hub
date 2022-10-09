@@ -20,8 +20,23 @@
   animation-iteration-count: infinite;
 }
 
+.showNav {
+  animation-name: showNav;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.showNotFound {
+  animation-name: showNotFound;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
 @keyframes showCard {
-  to {
+  100% {
     transform: translateX(0);
     opacity: 1;
   }
@@ -41,5 +56,17 @@
 @keyframes loading {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes showNav {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showNotFound {
+  100% {
+    transform: translateY(0);
   }
 }
