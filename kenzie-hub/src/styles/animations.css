@@ -27,11 +27,19 @@
   animation-fill-mode: forwards;
 }
 
-.showNotFound {
-  animation-name: showNotFound;
+.showContent {
+  animation-name: showContent;
   animation-duration: 0.4s;
   animation-timing-function: ease;
   animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.showMessage {
+  animation-name: showMessage;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-delay: 0.8s;
   animation-fill-mode: forwards;
 }
 
@@ -65,8 +73,14 @@
   }
 }
 
-@keyframes showNotFound {
+@keyframes showContent {
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes showMessage {
+  100% {
+    opacity: 1;
   }
 }
