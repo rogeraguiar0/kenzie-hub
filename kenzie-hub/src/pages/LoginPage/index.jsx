@@ -36,6 +36,7 @@ function LoginPage() {
       const response = await api.post("sessions", data);
       window.localStorage.removeItem("@kenzie_hub_token:");
       window.localStorage.setItem("@kenzie_hub_token:", response.data.token);
+      window.localStorage.setItem("@kenzie_hub_userid:", response.data.user.id);
       navigate("/dashboard");
     } catch (err) {
       console.error(err);

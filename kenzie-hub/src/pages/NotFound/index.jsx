@@ -7,7 +7,7 @@ function NotFound() {
     <>
       <NavBar />
       <Container>
-        <div className="showNotFound">
+        <div className="showContent">
           <p>
             Página não encontrada, <span>forasteiro</span>!
           </p>
