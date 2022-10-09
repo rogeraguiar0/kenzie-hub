@@ -9,7 +9,7 @@ function Header() {
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        const userId = window.localStorage.getItem("@kenzie_hub_userid:");
+        const userId = window.localStorage.getItem("@kenzie_hub_userid");
         const response = await api.get(`users/${userId}`);
         setUserInfo({
           name: response.data.name,
