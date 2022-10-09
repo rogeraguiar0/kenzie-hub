@@ -1,11 +1,31 @@
 .btn-df {
-  padding: 10px;
+  padding: 8px;
+  width: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: var(--color-primary);
   color: var(--color-grey-0);
   cursor: pointer;
   transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-df-ac {
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary-opacity);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
 }
 
 .btn-df:active {
@@ -14,17 +34,21 @@
 }
 
 .btn-vr {
-  padding: 10px;
+  padding: 8px;
+  width: 100%;
   border: none;
-  border-radius: 8px;
-  background-color: var(--color-grey-3);
+  border-radius: 4px;
+  background-color: var(--color-grey-1);
   color: var(--color-grey-0);
   cursor: pointer;
   transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
 }
 
 .btn-vr:active {
-  background-color: var(--color-grey-1);
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-4);
   transition: 0.4s;
 }
 
@@ -35,7 +59,8 @@
   }
 
   .btn-vr:hover {
-    background-color: var(--color-grey-1);
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-4);
     transition: 0.4s;
   }
 }
