@@ -13,6 +13,14 @@
   animation-fill-mode: forwards;
 }
 
+.showLogo2 {
+  animation-name: showLogo2;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
 .loading {
   animation-name: loading;
   animation-duration: 1s;
@@ -58,6 +66,13 @@
   100% {
     opacity: 1;
     transform: translateY(-10px);
+  }
+}
+
+@keyframes showLogo2 {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

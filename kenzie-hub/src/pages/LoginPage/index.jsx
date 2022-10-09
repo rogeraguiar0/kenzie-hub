@@ -34,9 +34,10 @@ function LoginPage() {
     setIsLoading(true);
     try {
       const response = await api.post("sessions", data);
-      window.localStorage.removeItem("@kenzie_hub_token:");
-      window.localStorage.setItem("@kenzie_hub_token:", response.data.token);
-      window.localStorage.setItem("@kenzie_hub_userid:", response.data.user.id);
+      window.localStorage.removeItem("@kenzie_hub_token");
+      window.localStorage.removeItem("@kenzie_hub_userid");
+      window.localStorage.setItem("@kenzie_hub_token", response.data.token);
+      window.localStorage.setItem("@kenzie_hub_userid", response.data.user.id);
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
@@ -84,7 +85,7 @@ function LoginPage() {
           </div>
           <span>{errors.password?.message}</span>
           {isLoading ? (
-            <button className="btn-df-ac" type="submit">
+            <button className="btn-df-ac" type="submit" disabled>
               <VscLoading className="loading" />
               <p>Logando...</p>
             </button>

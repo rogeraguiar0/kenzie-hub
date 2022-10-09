@@ -11,13 +11,14 @@ export const Container = styled.header`
   font-family: var(--font-family);
 
   & > div {
-    padding: 0 10px;
+    padding: 10px;
     height: 100%;
     width: 100%;
     max-width: 1000px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
     transform: translateY(-100%);
   }
 
@@ -37,5 +38,13 @@ export const Container = styled.header`
 
   & > div > p > svg {
     fill: var(--color-grey-1);
+  }
+
+  @media (min-width: 768px) {
+    & > div {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 `;
