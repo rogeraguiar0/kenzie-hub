@@ -1,0 +1,26 @@
+.input-df {
+  padding: 7px;
+  width: 100%;
+  border: 1px solid var(--color-grey-2);
+  border-radius: 4px;
+  background-color: var(--color-grey-2);
+  color: var(--color-grey-1);
+  font-size: 14px;
+  transition: 0.4s;
+}
+
+.input-df::placeholder {
+  color: var(--color-grey-1);
+  transition: 0.4s;
+}
+
+.input-df:focus {
+  border: 1px solid var(--color-grey-0);
+  color: var(--color-grey-0);
+  outline: none;
+  transition: 0.4s;
+}
+.input-df:focus::placeholder {
+  color: var(--color-grey-0);
+  transition: 0.4s;
+}

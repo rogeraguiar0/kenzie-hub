@@ -1,0 +1,13 @@
+@import "./reset.css";
+@import "./global.css";
+@import "./animations.css";
+@import "./buttons.css";
+@import "./inputs.css";
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}

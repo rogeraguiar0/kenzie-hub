@@ -1,0 +1,88 @@
+.btn-df {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-df-ac {
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary-opacity);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-df:active {
+  background-color: var(--color-primary-opacity);
+  transition: 0.4s;
+}
+
+.btn-vr {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-grey-1);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-vr:active {
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-4);
+  transition: 0.4s;
+}
+
+.btn-dk {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-grey-3);
+  color: var(--color-grey-0);
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-dk:active {
+  background-color: var(--color-grey-1);
+  transition: 0.4s;
+}
+
+@media (min-width: 768px) {
+  .btn-df:hover {
+    background-color: var(--color-primary-focus);
+    transition: 0.4s;
+  }
+
+  .btn-vr:hover {
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-4);
+    transition: 0.4s;
+  }
+
+  .btn-dk:hover {
+    background-color: var(--color-grey-1);
+    transition: 0.4s;
+  }
+}

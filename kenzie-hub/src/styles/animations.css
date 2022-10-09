@@ -1,0 +1,101 @@
+.showCard {
+  animation-name: showCard;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.showLogo {
+  animation-name: showLogo;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.showLogo2 {
+  animation-name: showLogo2;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.loading {
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.showNav {
+  animation-name: showNav;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.showContent {
+  animation-name: showContent;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.showMessage {
+  animation-name: showMessage;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showCard {
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showLogo {
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes showLogo2 {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showNav {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showContent {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showMessage {
+  100% {
+    opacity: 1;
+  }
+}
