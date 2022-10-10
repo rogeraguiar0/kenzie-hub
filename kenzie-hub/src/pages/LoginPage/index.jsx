@@ -6,12 +6,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { api } from "../../services/api.js";
 
-function LoginPage() {
+function LoginPage({ success, fail }) {
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -38,10 +36,11 @@ function LoginPage() {
       window.localStorage.removeItem("@kenzie_hub_userid");
       window.localStorage.setItem("@kenzie_hub_token", response.data.token);
       window.localStorage.setItem("@kenzie_hub_userid", response.data.user.id);
+      success("Login realizado com sucesso!");
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
-      toast.error("Falha no login");
+      fail("Falha no login");
     } finally {
       setIsLoading(false);
     }
@@ -102,12 +101,6 @@ function LoginPage() {
           </Link>
         </Extras>
       </Card>
-      <ToastContainer
-        position="top-center"
-        theme="colored"
-        autoClose={800}
-        hideProgressBar={true}
-      />
     </Container>
   );
 }
