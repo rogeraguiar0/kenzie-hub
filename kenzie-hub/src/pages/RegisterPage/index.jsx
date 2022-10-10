@@ -5,12 +5,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { api } from "../../services/api.js";
 
-function RegisterPage() {
+function RegisterPage({ success, fail }) {
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -48,9 +46,10 @@ function RegisterPage() {
     try {
       await api.post("users", data);
       navigate("/");
+      success("Registro realizado com sucesso!");
     } catch (err) {
       console.error(err);
-      toast.error("Falha no login");
+      fail("Falha no registro");
     } finally {
       setIsLoading(false);
     }
@@ -142,12 +141,6 @@ function RegisterPage() {
             </Form>
           </Card>
         </div>
-        <ToastContainer
-          position="top-center"
-          theme="colored"
-          autoClose={800}
-          hideProgressBar={true}
-        />
       </Container>
     </>
   );
