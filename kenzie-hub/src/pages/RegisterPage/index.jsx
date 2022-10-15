@@ -7,10 +7,10 @@ import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { api } from "../../services/api.js";
-import { FeedbackContext } from "../../contexts/FeedbackContext";
+import { UserContext } from "../../contexts/UserContext";
 
 function RegisterPage() {
-  const { success, fail } = useContext(FeedbackContext);
+  const { success, fail } = useContext(UserContext);
 
   const navigate = useNavigate();
 
