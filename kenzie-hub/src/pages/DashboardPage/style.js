@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  padding: 50px 10px 10px 10px;
-  height: calc(100vh - 190px);
+  min-height: calc(100vh - 190px);
+  height: 100%;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -10,13 +10,24 @@ export const Container = styled.main`
   font-family: var(--font-family);
 
   & > div {
+    position: relative;
+    z-index: 0;
     width: 100%;
     max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    color: var(--color-grey-0);
-    font-size: var(--title-size);
     opacity: 0;
+    transform: translateY(-100%);
+  }
+`;
+
+export const AddTecnologies = styled.div`
+  padding: 30px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-grey-0);
+  font-size: var(--title-size);
+
+  & svg {
+    fill: var(--color-grey-0);
   }
 `;

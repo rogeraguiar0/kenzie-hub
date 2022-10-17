@@ -1,20 +1,28 @@
 import { VscLoading } from "react-icons/vsc";
 import { Container } from "./style.js";
 import { api } from "../../services/api.js";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../contexts/UserContext.jsx";
 
 function Header() {
+  const { setTechnologies } = useContext(UserContext);
+
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     const getUserInfo = async () => {
       try {
-        const userId = window.localStorage.getItem("@kenzie_hub_userid");
-        const response = await api.get(`users/${userId}`);
+        const userToken = window.localStorage.getItem("@kenzie_hub_token");
+        const response = await api.get("profile/", {
+          headers: {
+            Authorization: `token ${userToken}`,
+          },
+        });
         setUserInfo({
           name: response.data.name,
           course_module: response.data.course_module,
         });
+        setTechnologies(response.data.techs);
       } catch (err) {
         console.error(err);
       }

@@ -8,10 +8,10 @@ import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { api } from "../../services/api.js";
-import { FeedbackContext } from "../../contexts/FeedbackContext";
+import { UserContext } from "../../contexts/UserContext";
 
 function LoginPage() {
-  const { success, fail } = useContext(FeedbackContext);
+  const { success, fail, setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -39,6 +39,7 @@ function LoginPage() {
       window.localStorage.removeItem("@kenzie_hub_userid");
       window.localStorage.setItem("@kenzie_hub_token", response.data.token);
       window.localStorage.setItem("@kenzie_hub_userid", response.data.user.id);
+      setUser(true);
       success("Login realizado com sucesso!");
       navigate("/dashboard");
     } catch (err) {

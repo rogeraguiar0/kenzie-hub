@@ -7,10 +7,10 @@ import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { api } from "../../services/api.js";
-import { FeedbackContext } from "../../contexts/FeedbackContext";
+import { UserContext } from "../../contexts/UserContext";
 
 function RegisterPage() {
-  const { success, fail } = useContext(FeedbackContext);
+  const { success, fail, setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ function RegisterPage() {
     setIsLoading(true);
     try {
       await api.post("users", data);
-      navigate("/dashboard");
+      setUser(true);
       success("Registro realizado com sucesso!");
     } catch (err) {
       console.error(err);

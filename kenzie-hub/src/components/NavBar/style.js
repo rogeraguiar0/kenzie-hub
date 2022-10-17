@@ -10,7 +10,7 @@ export const Container = styled.nav`
   background-color: var(--color-grey-4);
   font-family: var(--font-family);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   & > div {
     padding: 0 10px;
