@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { api } from "../../services/api.js";
+import { UserContext } from "../../contexts/UserContext";
 
-function RegisterPage({ success, fail }) {
+function RegisterPage() {
+  const { success, fail, setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -45,7 +48,7 @@ function RegisterPage({ success, fail }) {
     setIsLoading(true);
     try {
       await api.post("users", data);
-      navigate("/");
+      setUser(true);
       success("Registro realizado com sucesso!");
     } catch (err) {
       console.error(err);
