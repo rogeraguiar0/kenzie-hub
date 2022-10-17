@@ -10,7 +10,7 @@ import { api } from "../../services/api.js";
 import { UserContext } from "../../contexts/UserContext";
 
 function RegisterPage() {
-  const { success, fail } = useContext(UserContext);
+  const { success, fail, setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ function RegisterPage() {
     setIsLoading(true);
     try {
       await api.post("users", data);
-      navigate("/dashboard");
+      setUser(true);
       success("Registro realizado com sucesso!");
     } catch (err) {
       console.error(err);

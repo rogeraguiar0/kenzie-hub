@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 function MainRoutes() {
   const { user } = useContext(UserContext);
 
-  return user ? Outlet : <Navigate to="/" replace />;
+  return user ? <Outlet /> : <Navigate to="/" replace />;
 }
 
 export default MainRoutes;

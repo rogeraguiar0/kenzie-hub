@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  height: calc(100vh - 190px);
+  min-height: calc(100vh - 190px);
+  height: 100%;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -9,8 +10,12 @@ export const Container = styled.main`
   font-family: var(--font-family);
 
   & > div {
+    position: relative;
+    z-index: 0;
     width: 100%;
     max-width: 1000px;
+    opacity: 0;
+    transform: translateY(-100%);
   }
 `;
 
@@ -21,14 +26,6 @@ export const AddTecnologies = styled.div`
   justify-content: space-between;
   color: var(--color-grey-0);
   font-size: var(--title-size);
-
-  & > button {
-    padding: 7px 9px;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--color-grey-3);
-    cursor: pointer;
-  }
 
   & svg {
     fill: var(--color-grey-0);

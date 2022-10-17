@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  position: relative;
+  z-index: 1;
   height: 110px;
   width: 100vw;
   display: flex;
