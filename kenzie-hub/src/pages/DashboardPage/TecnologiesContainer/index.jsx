@@ -1,15 +1,12 @@
 import { BsTrash } from "react-icons/bs";
 import { GiTechnoHeart } from "react-icons/gi";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { Container, Container2, Tech } from "./style.js";
 import { api } from "../../../services/api";
 
 function TecnologiesContainer() {
-  const { success, fail, technologies, setTechnologies } =
-    useContext(UserContext);
-
-  const [userTechs, setUserTechs] = useState([]);
+  const { success, fail, technologies, getUserInfo } = useContext(UserContext);
 
   const handleRemove = async (id) => {
     try {
@@ -20,23 +17,18 @@ function TecnologiesContainer() {
         },
       });
       success("Tecnologia removida com sucesso!");
+      getUserInfo();
     } catch (err) {
       console.error(err);
       fail("Não foi possível remover a tecnologia");
-    } finally {
-      setTechnologies(technologies);
     }
   };
 
-  useEffect(() => {
-    setUserTechs(technologies);
-  }, [technologies]);
-
   return (
     <Container>
-      {userTechs.length ? (
+      {technologies.length ? (
         <Container2>
-          {userTechs.map((elem, index) => (
+          {technologies.map((elem, index) => (
             <Tech key={index}>
               <h4>{elem.title}</h4>
               <div>

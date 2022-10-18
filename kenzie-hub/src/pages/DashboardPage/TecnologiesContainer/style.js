@@ -51,7 +51,6 @@ export const Tech = styled.article`
   justify-content: space-between;
   border-radius: 4px;
   background-color: var(--color-grey-4);
-  transition: 0.4s;
 
   & > h4 {
     color: var(--color-grey-0);
