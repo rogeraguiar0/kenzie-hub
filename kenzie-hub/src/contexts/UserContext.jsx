@@ -11,6 +11,20 @@ function UserProvider({ children }) {
   const [user, setUser] = useState(false);
   const [technologies, setTechnologies] = useState([]);
 
+  const getUserInfo = async () => {
+    try {
+      const userToken = window.localStorage.getItem("@kenzie_hub_token");
+      const response = await api.get("profile/", {
+        headers: {
+          Authorization: `token ${userToken}`,
+        },
+      });
+      setTechnologies(response.data.techs);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const success = (message) => {
     toast.success(message);
   };
@@ -41,6 +55,7 @@ function UserProvider({ children }) {
         setUser,
         technologies,
         setTechnologies,
+        getUserInfo,
       }}
     >
       {children}

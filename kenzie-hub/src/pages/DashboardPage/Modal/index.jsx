@@ -9,8 +9,7 @@ import { UserContext } from "../../../contexts/UserContext.jsx";
 import { VscLoading } from "react-icons/vsc";
 
 function Modal({ setShowModal }) {
-  const { success, fail, technologies, setTechnologies } =
-    useContext(UserContext);
+  const { success, fail, getUserInfo } = useContext(UserContext);
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório").min(2),
@@ -38,13 +37,13 @@ function Modal({ setShowModal }) {
         },
       });
       success("Tecnologia adicionada com sucesso!");
+      getUserInfo();
     } catch (err) {
       console.error(err);
       fail("Não foi possível concluir a ação");
     } finally {
       setIsLoading(false);
       setShowModal(false);
-      setTechnologies(technologies);
       reset();
     }
   };

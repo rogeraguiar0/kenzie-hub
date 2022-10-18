@@ -4,15 +4,13 @@ import { Container, Nav, Card, Form } from "./style.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { api } from "../../services/api.js";
 import { UserContext } from "../../contexts/UserContext";
 
 function RegisterPage() {
   const { success, fail, setUser } = useContext(UserContext);
-
-  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
