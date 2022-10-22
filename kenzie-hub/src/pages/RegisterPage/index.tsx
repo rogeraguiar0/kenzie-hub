@@ -1,16 +1,28 @@
 import logo from "../../assets/logo.svg";
 import { VscLoading } from "react-icons/vsc";
-import { Container, Nav, Card, Form } from "./style.js";
+import { Container, Nav, Card, Form } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { api } from "../../services/api.js";
+import { api } from "../../services/api";
 import { UserContext } from "../../contexts/UserContext";
 
+interface iDataRegister {
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  name: string;
+  bio: string;
+  contact: string;
+  course_module: string;
+}
+
 function RegisterPage() {
-  const { success, fail, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const { success, fail } = useContext(UserContext);
 
   const schema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -36,18 +48,18 @@ function RegisterPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<iDataRegister>({
     resolver: yupResolver(schema),
   });
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleForm = async (data) => {
+  const handleForm = async (data: iDataRegister) => {
     setIsLoading(true);
     try {
       await api.post("users", data);
-      setUser(true);
       success("Registro realizado com sucesso!");
+      navigate("/");
     } catch (err) {
       console.error(err);
       fail("Falha no registro");

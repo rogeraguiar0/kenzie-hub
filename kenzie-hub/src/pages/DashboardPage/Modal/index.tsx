@@ -1,14 +1,23 @@
-import { ModalBg, ModalCard, Header, Formulary } from "./style.js";
+import { ModalBg, ModalCard, Header, Formulary } from "./style";
 import { AiOutlineClose } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useContext, useState } from "react";
-import { api } from "../../../services/api.js";
-import { UserContext } from "../../../contexts/UserContext.jsx";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
+import { api } from "../../../services/api";
+import { UserContext } from "../../../contexts/UserContext";
 import { VscLoading } from "react-icons/vsc";
 
-function Modal({ setShowModal }) {
+interface iModalProps {
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+}
+
+interface iDataModal {
+  title: string;
+  status: string;
+}
+
+function Modal({ setShowModal }: iModalProps) {
   const { success, fail, getUserInfo } = useContext(UserContext);
 
   const schema = yup.object().shape({
@@ -21,13 +30,13 @@ function Modal({ setShowModal }) {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({
+  } = useForm<iDataModal>({
     resolver: yupResolver(schema),
   });
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleForm = async (data) => {
+  const handleForm = async (data: iDataModal) => {
     setIsLoading(true);
     try {
       const userToken = localStorage.getItem("@kenzie_hub_token");
@@ -37,7 +46,7 @@ function Modal({ setShowModal }) {
         },
       });
       success("Tecnologia adicionada com sucesso!");
-      getUserInfo();
+      getUserInfo(null);
     } catch (err) {
       console.error(err);
       fail("Não foi possível concluir a ação");
@@ -49,7 +58,7 @@ function Modal({ setShowModal }) {
   };
 
   const handleClose = () => {
-    document.querySelector(".showCard").classList.add("closeCard");
+    document.querySelector(".showCard")?.classList.add("closeCard");
     setTimeout(() => {
       setShowModal(false);
     }, 350);

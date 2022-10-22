@@ -1,6 +1,6 @@
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
-import { Container, AddTecnologies } from "./style.js";
+import { Container, AddTecnologies } from "./style";
 import { BsPlusLg } from "react-icons/bs";
 import TecnologiesContainer from "./TecnologiesContainer";
 import Modal from "./Modal";

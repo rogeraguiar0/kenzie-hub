@@ -4,6 +4,7 @@ export const Container = styled.div`
   padding: 10px;
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
   background-color: var(--color-grey-4);
   font-family: var(--font-family);
   display: flex;

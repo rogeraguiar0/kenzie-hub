@@ -1,13 +1,18 @@
 import { VscLoading } from "react-icons/vsc";
-import { Container } from "./style.js";
-import { api } from "../../services/api.js";
+import { Container } from "./style";
+import { api } from "../../services/api";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../contexts/UserContext.jsx";
+import { UserContext } from "../../contexts/UserContext";
+
+interface iUserInfo {
+  name: string;
+  course_module: string;
+}
 
 function Header() {
   const { setTechnologies } = useContext(UserContext);
 
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState<iUserInfo | null>(null);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -28,19 +33,20 @@ function Header() {
       }
     };
     getUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Container>
       <div className="showContent">
-        {userInfo.name ? (
+        {userInfo?.name ? (
           <h2>Olá, {userInfo.name}!</h2>
         ) : (
           <h2>
             <VscLoading className="loading" />
           </h2>
         )}
-        {userInfo.course_module ? (
+        {userInfo?.course_module ? (
           <p>{userInfo.course_module}</p>
         ) : (
           <p>

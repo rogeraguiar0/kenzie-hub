@@ -4,6 +4,7 @@ export const Container = styled.main`
   min-height: calc(100vh - 190px);
   height: 100%;
   width: 100vw;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   background-color: var(--color-grey-4);
