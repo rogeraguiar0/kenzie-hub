@@ -1,33 +1,25 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
-  height: calc(100vh - 80px);
+export const Container = styled.nav`
+  height: 80px;
   width: 100vw;
+  max-width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
+  border-bottom: 1px solid var(--color-grey-2);
   background-color: var(--color-grey-4);
-  color: var(--color-grey-0);
   font-family: var(--font-family);
   position: relative;
-  z-index: 0;
+  z-index: 2;
 
   & > div {
-    margin-top: 50px;
+    padding: 0 10px;
     width: 100%;
     max-width: 1000px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    text-align: center;
+    justify-content: space-between;
     transform: translateY(-100%);
-  }
-
-  & > div > svg {
-    font-size: 20px;
-  }
-
-  & > div span {
-    color: var(--color-primary);
   }
 `;
