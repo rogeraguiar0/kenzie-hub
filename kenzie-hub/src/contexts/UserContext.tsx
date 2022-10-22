@@ -1,15 +1,49 @@
-import { createContext, useState, useEffect } from "react";
-import { api } from "../services/api.js";
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+} from "react";
+import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-export const UserContext = createContext({});
+interface iChildren {
+  children: ReactNode;
+}
 
-function UserProvider({ children }) {
+interface iTechnologies {
+  id: string;
+  title: string;
+  status: string;
+  user: {
+    id: string;
+  };
+  create_at: string;
+  updated_at: string;
+}
+
+interface iProviderValues {
+  user: boolean;
+  setUser: Dispatch<SetStateAction<boolean>>;
+  technologies: iTechnologies[] | null;
+  setTechnologies: Dispatch<SetStateAction<iTechnologies[] | null>>;
+  getUserInfo: Dispatch<SetStateAction<iTechnologies[] | null>>;
+  success: (message: string) => void;
+  fail: (message: string) => void;
+}
+
+export const UserContext = createContext({} as iProviderValues);
+
+function UserProvider({ children }: iChildren) {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(false);
-  const [technologies, setTechnologies] = useState([]);
+  const [technologies, setTechnologies] = useState<iTechnologies[] | null>(
+    null
+  );
 
   const getUserInfo = async () => {
     try {
@@ -25,10 +59,10 @@ function UserProvider({ children }) {
     }
   };
 
-  const success = (message) => {
+  const success = (message: string) => {
     toast.success(message);
   };
-  const fail = (message) => {
+  const fail = (message: string) => {
     toast.error(message);
   };
 
@@ -44,6 +78,7 @@ function UserProvider({ children }) {
       }
     };
     verification();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

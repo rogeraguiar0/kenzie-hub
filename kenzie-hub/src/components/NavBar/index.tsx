@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.svg";
-import { Container } from "./style.js";
+import { Container } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";

@@ -1,14 +1,19 @@
+import logo from "../../assets/logo.svg";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { VscLoading } from "react-icons/vsc";
-import logo from "../../assets/logo.svg";
-import { Container, Card, Form, Extras } from "./style.js";
+import { Container, Card, Form, Extras } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { api } from "../../services/api.js";
+import { api } from "../../services/api";
 import { UserContext } from "../../contexts/UserContext";
+
+interface iDataLogin {
+  email: string | null;
+  password: string | null;
+}
 
 function LoginPage() {
   const { success, fail, setUser } = useContext(UserContext);
@@ -24,14 +29,14 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<iDataLogin>({
     resolver: yupResolver(schema),
   });
 
   const [type, setType] = useState("password");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleForm = async (data) => {
+  const handleForm = async (data: iDataLogin) => {
     setIsLoading(true);
     try {
       const response = await api.post("sessions", data);
@@ -56,8 +61,8 @@ function LoginPage() {
 
     type === "password" ? setType("text") : setType("password");
 
-    eye.classList.toggle("hidden");
-    eyeSlash.classList.toggle("hidden");
+    eye?.classList.toggle("hidden");
+    eyeSlash?.classList.toggle("hidden");
   };
 
   return (

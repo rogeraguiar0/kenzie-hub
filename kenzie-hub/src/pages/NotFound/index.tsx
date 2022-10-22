@@ -1,6 +1,6 @@
 import NavBar from "../../components/NavBar";
 import { FaHatCowboy } from "react-icons/fa";
-import { Container } from "./style.js";
+import { Container } from "./style";
 
 function NotFound() {
   return (
