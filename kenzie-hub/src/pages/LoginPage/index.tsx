@@ -15,6 +15,13 @@ interface iDataLogin {
   password: string | null;
 }
 
+interface iDataLoginResponse {
+  token: string;
+  user: {
+    id: string;
+  };
+}
+
 function LoginPage() {
   const { success, fail, setUser } = useContext(UserContext);
 
@@ -39,7 +46,7 @@ function LoginPage() {
   const handleForm = async (data: iDataLogin) => {
     setIsLoading(true);
     try {
-      const response = await api.post("sessions", data);
+      const response = await api.post<iDataLoginResponse>("sessions", data);
       window.localStorage.removeItem("@kenzie_hub_token");
       window.localStorage.removeItem("@kenzie_hub_userid");
       window.localStorage.setItem("@kenzie_hub_token", response.data.token);

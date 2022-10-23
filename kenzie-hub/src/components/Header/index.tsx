@@ -3,6 +3,7 @@ import { Container } from "./style";
 import { api } from "../../services/api";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import { iDataProfile } from "../../contexts/UserContext";
 
 interface iUserInfo {
   name: string;
@@ -18,7 +19,7 @@ function Header() {
     const getUserInfo = async () => {
       try {
         const userToken = window.localStorage.getItem("@kenzie_hub_token");
-        const response = await api.get("profile/", {
+        const response = await api.get<iDataProfile>("profile/", {
           headers: {
             Authorization: `token ${userToken}`,
           },
