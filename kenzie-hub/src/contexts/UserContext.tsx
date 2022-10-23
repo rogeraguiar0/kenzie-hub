@@ -25,6 +25,12 @@ interface iTechnologies {
   updated_at: string;
 }
 
+export interface iDataProfile {
+  name: string;
+  course_module: string;
+  techs: iTechnologies[];
+}
+
 interface iProviderValues {
   user: boolean;
   setUser: Dispatch<SetStateAction<boolean>>;
@@ -48,7 +54,7 @@ function UserProvider({ children }: iChildren) {
   const getUserInfo = async () => {
     try {
       const userToken = window.localStorage.getItem("@kenzie_hub_token");
-      const response = await api.get("profile/", {
+      const response = await api.get<iDataProfile>("profile/", {
         headers: {
           Authorization: `token ${userToken}`,
         },
